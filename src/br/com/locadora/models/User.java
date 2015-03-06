@@ -1,40 +1,48 @@
 package br.com.locadora.models;
 
+public abstract class User implements UserAcademy {
 
-	
-public abstract class  User implements UserAcademy{
-	
 	private Integer id;
 	private String name;
 	private String password;
 	private String cpf;
 	private Nivel nivel;
-	
-	User(){
-		
+
+	User() {
+
 	}
-	public User(String name,String password, String cpf, Nivel nivel) {
+
+	public User(String name, String password, String cpf, Nivel nivel) {
 		this.setNome(name);
 		this.setPassword(password);
 		this.setCpf(cpf);
 		this.setNivel(nivel);
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public String getNome() {
 		return name;
 	}
-	
+
 	public void setNome(String name) {
 		this.name = name;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -42,19 +50,21 @@ public abstract class  User implements UserAcademy{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 	public Nivel getNivel() {
 		return nivel;
 	}
+
 	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
-	
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", password=" + password
-				+ ", cpf=" + cpf + ", nivel=" + nivel + "]";
+		return "User [name=" + name + ", password=" + password + ", cpf=" + cpf
+				+ ", nivel=" + nivel + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,6 +89,5 @@ public abstract class  User implements UserAcademy{
 			return false;
 		return true;
 	}
-	
-	
+
 }
