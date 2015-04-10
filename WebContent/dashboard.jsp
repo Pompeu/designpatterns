@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<c:import url="/imports/css.jsp"></c:import>
 <title>DashBoard</title>
 </head>
 <body>
-	<h1>Bem vindo ${sessionScope.usuLogado}</h1>
-	<h1>Bem vindo ${user.name}</h1>
-
+	<c:import url="/imports/menu.jsp"></c:import>
+	<h3>Bem vindo ${sessionScope.usuLogado.nome}</h3>
 </body>
 </html>

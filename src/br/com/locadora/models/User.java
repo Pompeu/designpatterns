@@ -1,6 +1,6 @@
 package br.com.locadora.models;
 
-public abstract class User implements UserAcademy {
+public abstract class User{
 
 	private Integer id;
 	private String name;
@@ -9,7 +9,6 @@ public abstract class User implements UserAcademy {
 	private Nivel nivel;
 
 	User() {
-
 	}
 
 	public User(String name, String password, String cpf, Nivel nivel) {
