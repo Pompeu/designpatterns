@@ -23,7 +23,7 @@ public class VerificarNivelDAO extends ServicoAbstrato<User> {
 	public boolean isAdmin(Integer id) {
 		
 		try {
-			return dao.retriveById(id).getNivel().name().equals("ADMIN");
+			return getDao().retriveById(id).getNivel().name().equals("ADMIN");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

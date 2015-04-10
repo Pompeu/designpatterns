@@ -29,19 +29,21 @@ public class CrtlFilter implements Filter {
 
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
+		String url = ((HttpServletRequest) req).getRequestURI();
 		String param = ((HttpServletRequest) req).getParameter("ctrl");
 
 		session = ((HttpServletRequest) req).getSession();
 
 		User user = (User) session.getAttribute("usuLogado");
-
+				
 		if (session.getAttribute("usuLogado") != null && user != null
-				|| param.equals("LoginForm") || param.equals("LoginService")) {
-			verificarNilvel.academiaLoguer(user);
+				&& verificarNilvel.isAdmin(user.getId()) ||
+				param.equals("LoginForm") || param.equals("LoginService")) {
+			verificarNilvel.academiaLoguer(user , url , param);
 			chain.doFilter(req, res);
 		} else {
-			if (user != null)
-				verificarNilvel.academiaLoguer(user);
+			if (user != null)				
+				verificarNilvel.academiaLoguer(user , url, param);
 			req.setAttribute("result", "Cadastro Somente Administrado");
 			((HttpServletResponse) res).sendRedirect("ctrl.do?ctrl=LoginForm");
 		}

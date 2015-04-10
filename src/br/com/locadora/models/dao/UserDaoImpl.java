@@ -46,7 +46,6 @@ public class UserDaoImpl implements DAO<User> {
 		stm.setString(4, obj.getNivel().name());
 
 		stm.execute();
-		
 
 		ResultSet rs = stm.getGeneratedKeys();
 
@@ -80,14 +79,12 @@ public class UserDaoImpl implements DAO<User> {
 	public User retriveById(Integer id) throws SQLException {
 		String sql = "select * from users  where id=?";
 		User user = null;
-		
-		System.out.println("retrive by id"+id);
-		
+
 		stm = con.prepareStatement(sql);
 		stm.setInt(1, id);
-		System.out.println(stm);
+
 		ResultSet rs = stm.executeQuery();
-		
+
 		while (rs.next()) {
 			user = factory.createUser(rs.getString("name"),
 					rs.getString("password"), rs.getString("cpf"),
